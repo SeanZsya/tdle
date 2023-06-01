@@ -1,0 +1,1 @@
+rosbag record -o ~/ /map /centroids /grid_marker /subregion_marker /trajectory_node_list /move_base/NavfnROS/plan /global_shapes /local_shapes

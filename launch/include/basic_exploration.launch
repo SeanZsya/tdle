@@ -1,0 +1,30 @@
+<!-- Launch file for the rrt-detector and the assigner -->
+
+
+<launch>
+<arg name="stride" value="1.0"/>
+<param name="namespace_init_count" value="1"/>
+
+  <node pkg="tdle" type="fpoint_detector" name="fpoint_detector" output="screen">
+    <param name="stride" value="0.5"/>
+    <param name="map_topic" value="/robot_1/map"/>
+    <param name="odom_topic" value="/robot_1/odom"/>
+  </node>
+
+  <!-- <node pkg="tdle" type="filter.py" name="filter" output="screen">
+    <param name="map_topic" value="/map"/>
+    <param name="info_radius" value="1"/>
+    <param name="costmap_clearing_threshold" value="70"/> 
+    <param name="goals_topic" value="/detected_points"/>
+    <param name="namespace" value=""/> 
+    <param name="n_robots" value="1"/>
+    <param name="rate" value="100"/>
+  </node> -->
+
+  <node pkg="tdle" type="fpoint_filter" name="fpoint_filter" output="screen"/>
+
+  <node pkg="tdle" type="subregion_arrangement" name="subregion_arrangement" output="screen"/>
+  
+  <node pkg="tdle" type="fpoint_selection" name="fpoint_selection" output="screen"/>
+
+</launch>

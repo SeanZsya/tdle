@@ -1,0 +1,16 @@
+# #This file contains common configuration options for the two costmaps used in the navigation stack for more details on the parameters in this file, and a full list of the parameters used by the costmaps, please see http://www.ros.org/wiki/costmap_2d
+
+# lethal_cost_threshold: 100
+
+obstacle_range: 3.0
+raytrace_range: 3.5
+
+footprint: [[-0.205, -0.155], [-0.205, 0.155], [0.077, 0.155], [0.077, -0.155]]
+#robot_radius: 0.17
+
+inflation_radius: 0.6 #0.6
+cost_scaling_factor: 4.0 #4.0
+
+map_type: costmap
+observation_sources: scan
+scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}

@@ -1,0 +1,19 @@
+<!--  Launch file for signle robot on Gazebo -->
+<launch>
+
+
+<group ns="/robot_1">
+
+    <include file="$(find tdle)/launch/include/move_base_real.launch">
+        <arg name="namespace" value="robot_1"/>
+    </include> 
+    
+    <include file="$(find tdle)/launch/include/basic_exploration.launch"/>
+    
+</group>
+
+<node pkg="rviz" type="rviz" name="rviz" args="-d $(find tdle)/param/rviz_config/single.rviz">
+    <remap from="move_base_simple/goal" to="robot_1/move_base_simple/goal"/>
+</node>
+
+</launch>
