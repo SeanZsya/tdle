@@ -160,7 +160,7 @@ vector<int> selectSubRegi()
 		{
 			if(isInside(center, filtered_points[j])) 
 				fpoint_count++;
-			if(fpoint_count >= 3) 
+			if(fpoint_count >= 2) 
 			{
 				fpoint_inside = true;
 				break;
@@ -291,7 +291,7 @@ vector<int> sortSubRgi_bfs(vector<vector<float>> full_graph,vector<int> sr_sel,v
         //     - 4 * full_graph[sr_bot][sr_sel[0]];
         float score = 
             7 * similarity_dtw(full_graph, sr_sel,sr_sorted_before) - route_length(full_graph, sr_sel)/(sr_sel.size()+1) 
-            - 3 * dis_to_ini;
+            - 2 * dis_to_ini;
         if (score > best_score) {
             best_score = score;
             best_path = sr_sel;

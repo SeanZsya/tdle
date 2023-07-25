@@ -207,7 +207,7 @@ int main(int argc, char **argv)
 		// ROS_WARN("heading to subregion %d", goal.target_pose);	
 
 		ros::spinOnce();
-		ros::Duration(1).sleep();
+		ros::Duration(0.7).sleep();
 	}
 
 	return 0;

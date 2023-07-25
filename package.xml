@@ -27,4 +27,9 @@
   <run_depend>visualization_msgs</run_depend>
   <run_depend>message_runtime</run_depend>
 
+  <run_depend>gazebo_ros</run_depend>
+  <export>
+    <gazebo_ros gazebo_model_path="${}/models"/>
+  </export>
+
 </package>

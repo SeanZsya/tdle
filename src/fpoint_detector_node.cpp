@@ -60,10 +60,10 @@ int rrtExpand (vector< vector<float> > &tree_nodes, visualization_msgs::Marker &
 	{
 		tree_nodes.push_back(x_new);
 		// keep enough points, dicard the rest
-		if (tree_nodes.size()> (map_height*map_width/stride/stride))
+		if (tree_nodes.size()> (2*map_height*map_width/stride/stride))
 			tree_nodes.erase(tree_nodes.begin());
 		// for visualization only
-		if (vis_marker.points.size()> (map_height*map_width/stride/stride))
+		if (vis_marker.points.size()> (2*map_height*map_width/stride/stride))
 			vis_marker.points.erase(vis_marker.points.begin(),vis_marker.points.begin()+2);
 		visMarkerSet(vis_marker,x_new);
 		visMarkerSet(vis_marker,x_nearest);
@@ -92,7 +92,7 @@ int main(int argc, char **argv)
 	ros::Publisher localmkpub = nh.advertise<visualization_msgs::Marker>("local_shapes", 10);
 	ros::Publisher globalmkpub = nh.advertise<visualization_msgs::Marker>("global_shapes", 10);	
 	ros::Publisher testpub = nh.advertise<visualization_msgs::Marker>("test_shapes", 10);
-	ros::Rate rate(100); // run at 100Hz
+	ros::Rate rate(150); 
 	
 	// wait until map is received
 	while (mapData.header.seq<1 or mapData.data.size()<100)  {ros::spinOnce();  rate.sleep();}

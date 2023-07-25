@@ -3,6 +3,7 @@
   <master auto="start"/>
   <arg name="namespace"/>
   <arg name="configuration_basename" default="tdle.lua"/>
+  <arg name="planner_name" default="teb"/>
   <param name="use_sim_time" value="true" />
 
 
@@ -105,14 +106,16 @@
     <param name="planner_patience" value="1" />
     <param name="controller_patience" value="1" /> 
     <param name="recovery_behavior_enabled" value="true" />
-    <!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/> -->
-    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
 
-    <rosparam file="$(find tdle)/param/teb/costmap_common_params.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(find tdle)/param/teb/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find tdle)/param/teb/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find tdle)/param/teb/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find tdle)/param/teb/local_planner_params.yaml" command="load" />
+
+    <param if="$(eval planner_name == 'teb')" name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    <param if="$(eval planner_name == 'dwa')" name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+
+    <rosparam file="$(find tdle)/param/$(arg planner_name)/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find tdle)/param/$(arg planner_name)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find tdle)/param/$(arg planner_name)/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find tdle)/param/$(arg planner_name)/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find tdle)/param/$(arg planner_name)/local_planner_params.yaml" command="load" />
     
     <!-- frame -->
     <param name="global_costmap/global_frame" value="map"/>
