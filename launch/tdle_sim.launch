@@ -5,8 +5,8 @@
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="use_sim_time" value="true"/>
         <arg name="debug" value="false"/>
-        <arg name="world_name" value="$(find tdle)/sim_models/worlds/museum.world"/>
-        <!-- <arg name="world_name" value="$(find tdle)/sim_models/worlds/library.world"/> -->
+        <arg name="world_name" value="$(find gz_sim_models)/worlds/museum.world"/>
+        <!-- <arg name="world_name" value="$(find gz_sim_models)/worlds/library.world"/> -->
     </include>
 
     <!-- robot initialization -->

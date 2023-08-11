@@ -55,7 +55,7 @@ In the second phase, the subregions are visited one by one in the order determin
 
   - **Gazebo Models** (optional)
 
-    The model files required by `robot(turtlebot3-waffle)` and `simulation scene(museum)` have been placed in the folder `sim_models`, no need for additional downloads.
+    The model files required by `robot(turtlebot3-waffle)` and `simulation scene(museum)` can be found in [gz_sim_models](https://github.com/SeanZsya/gz_sim_models), which is organized as a catkin package. You can clone it into your workspace and build it with `catkin_make`.
 
     If you want to use the `simulation scene(library)`, please download [extra models](https://github.com/aws-robotics/aws-robomaker-bookstore-world/tree/ros1/models), put them in your Gazebo model folder (usually `~/.gazebo/models`), and change the `world_name` parameter in `tdle_sim.launch`.
 
