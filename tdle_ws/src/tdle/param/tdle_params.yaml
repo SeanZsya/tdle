@@ -1,0 +1,111 @@
+# TDLE Parameters Configuration
+# This file contains all configurable parameters for the TDLE exploration system
+
+fpoint_detector:
+  ros__parameters:
+    # RRT sampling stride (meters)
+    stride: 0.5
+
+    # Maximum number of nodes in RRT trees
+    max_tree_nodes: 1000
+
+    # Topic names
+    map_topic: "/map"
+    odom_topic: "/odom"
+
+    # Use simulation time
+    use_sim_time: true
+
+fpoint_filter:
+  ros__parameters:
+    # Maximum frontier points to keep
+    max_frontier_points: 200
+
+    # Costmap threshold (values above this are obstacles)
+    costmap_threshold: 30
+
+    # Minimum distance between frontier points (meters)
+    min_point_distance: 0.5
+
+    # Minimum unknown neighbors required
+    unknown_threshold: 5
+
+    # Publishing rate (Hz)
+    publish_rate: 10.0
+
+    # Topic names
+    map_topic: "/map"
+    costmap_topic: "/global_costmap/costmap"
+
+    # Use simulation time
+    use_sim_time: true
+
+subregion_arrangement:
+  ros__parameters:
+    # Grid divisions (3x3 = 9 subregions)
+    grid_divisions: 3
+
+    # Minimum frontier points per region to be selected
+    min_points_per_region: 3
+
+    # Unknown threshold for subregion selection
+    unknown_threshold: 80
+
+    # Unknown sampling resolution (10x10 samples per subregion)
+    unknown_sample_step: 10.0
+
+    # Publishing rate (Hz)
+    publish_rate: 10.0
+
+    # Subregion sorting strategy:
+    # - frontier_selected: ANA (adaptive simulated annealing with DTW term)
+    # - unknown_only_selected: greedy
+
+    # ANA parameters
+    ana_initial_temp: 1.0
+    ana_stop_temp: 0.001
+    ana_max_iterations: 120
+    ana_mu: 2.0
+    ana_lambda_similarity: 1.0
+    # Keep this intentionally very low: terminal-to-initial closeness is weak regularizer only
+    ana_lambda_end_to_initial: 0.01
+    ana_lambda_path_length: 0.65
+    ana_seed: 42
+
+    # Topic names
+    map_topic: "/map"
+    odom_topic: "/odom"
+
+    # Use simulation time
+    use_sim_time: true
+
+fpoint_selection:
+  ros__parameters:
+    # Goal sending interval (milliseconds)
+    goal_send_interval_ms: 700.0
+
+    # Stuck detection threshold (waypoints)
+    stuck_waypoint_threshold: 15
+
+    # Position tolerance for stuck detection (meters)
+    position_tolerance: 0.1
+
+    # Frontier point is considered reached within this radius (meters)
+    goal_reached_tolerance: 0.3
+
+    # Scoring weights
+    global_compatibility_weight: 0.5
+    info_gain_weight: 0.5
+    motion_consistency_weight: 1.0
+    distance_to_robot_weight: 0.7
+
+    # Main loop rate (Hz)
+    loop_rate: 10.0
+
+    # Topic names
+    map_topic: "/map"
+    odom_topic: "/odom"
+    local_plan: "/local_plan"
+
+    # Use simulation time
+    use_sim_time: true

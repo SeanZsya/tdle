@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>tdle</name>
+  <version>1.0.0</version>
+  <description>A ROS 2 package for exploration with 2D lidar.</description>
+
+  <maintainer email="cnzhaoxy@gmail.com">Sean Zhao</maintainer>
+  <author>Sean Zhao</author>
+  <license>MIT</license>
+  <url>https://github.com/SeanZsya/tdle</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>nav2_msgs</depend>
+  <exec_depend>nav2_bringup</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>rosgraph_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>tf2_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

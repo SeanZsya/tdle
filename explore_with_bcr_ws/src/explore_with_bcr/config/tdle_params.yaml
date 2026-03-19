@@ -1,0 +1,28 @@
+# TDLE Parameters for bcr_bot integration
+# This file configures TDLE to work with bcr_bot's topic names
+
+fpoint_detector:
+  ros__parameters:
+    stride: 0.5
+    map_topic: "/map"
+    odom_topic: "/bcr_bot/odom"    # bcr_bot's odometry topic
+    use_sim_time: true
+
+fpoint_filter:
+  ros__parameters:
+    map_topic: "/map"
+    costmap_topic: "/global_costmap/costmap"
+    use_sim_time: true
+
+subregion_arrangement:
+  ros__parameters:
+    map_topic: "/map"
+    odom_topic: "/bcr_bot/odom"    # bcr_bot's odometry topic
+    max_subregion_size: 5.0        # 每个子区域最大边长（米），超过时动态增加划分
+    use_sim_time: true
+
+fpoint_selection:
+  ros__parameters:
+    map_topic: "/map"
+    odom_topic: "/bcr_bot/odom"    # bcr_bot's odometry topic
+    use_sim_time: true

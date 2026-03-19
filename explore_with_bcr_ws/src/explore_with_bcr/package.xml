@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>explore_with_bcr</name>
+  <version>1.0.0</version>
+  <description>Integration of TDLE exploration framework with bcr_bot simulation platform</description>
+
+  <maintainer email="cnzhaoxy@gmail.com">Sean Zhao</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+
+  <!-- bcr_bot dependencies -->
+  <exec_depend>bcr_bot</exec_depend>
+  <exec_depend>slam_toolbox</exec_depend>
+  <exec_depend>nav2_bringup</exec_depend>
+
+  <!-- TDLE dependencies -->
+  <exec_depend>tdle</exec_depend>
+
+  <!-- Common ROS2 dependencies -->
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
